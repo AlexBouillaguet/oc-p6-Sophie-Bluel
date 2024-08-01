@@ -22,6 +22,8 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	text-decoration: none;
+	color: inherit;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -58,6 +60,9 @@ header {
 	justify-content: space-between;
 	margin: 50px 0
 }
+header body {
+	background-color: #E5E5E5;
+}
 section {
 	margin: 50px 0
 }
@@ -75,7 +80,6 @@ h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
-;
 }
 
 h2{
@@ -88,15 +92,21 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
+	column-gap: 44px;
 
 }
 nav li {
-	padding: 0 10px;
 	font-size: 1.2em;
 }
-
 li:hover {
 	color: #B1663C;
+	cursor: pointer;
+}
+nav ul li img {
+	height: 22px;
+}
+nav ul li img:hover {
+	filter: brightness(0) saturate(100%) invert(45%) sepia(18%) saturate(2876%) hue-rotate(346deg) brightness(80%) contrast(73%);
 }
 #introduction {
 	display: flex;
@@ -125,6 +135,42 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+.filters-container {
+	display: flex;
+	justify-content: center;
+	column-gap: 10px;
+	margin-bottom: 50px;
+}
+.filters-container button {
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 1.14em;
+	background-color: white;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	color: #1D6154;
+	cursor: pointer;
+}
+.filters-container button:hover {
+	background-color: #1D6154;
+	color: white;
+}
+.filters-container button:nth-child(1) {
+	padding: 9px 28px;
+}
+.filters-container button:nth-child(2) {
+	padding: 9px 20px;
+}
+.filters-container button:nth-child(3) {
+	padding: 9px 14px;
+}
+.filters-container button:nth-child(4) {
+	padding: 9px 10px;
+}
+.filters-container button.active {
+	background-color: #1D6154;
+	color: white;
+}
 .gallery {
 	width: 100%;
 	display: grid;
@@ -137,47 +183,66 @@ li:hover {
 	width: 100%;
 
 }
-#contact {
+
+.form-container {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
-#contact > * {
+.form-container > * {
 	text-align: center;
 
 }
-#contact h2{
+.form-container h2{
 	margin-bottom: 20px;
 }
-#contact form {
+.form-container form {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
-
-#contact input {
+.form-container input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+.form-container label {
 	margin: 2em 0 1em 0;
+	font-weight: 600;
+	color: #3D3D3D;
+}
+.form-container input[type="submit"]{
+	font-family: 'Syne';
+	font-size: 1em;
+	font-weight: 500;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 179px;
+	height: 36px;
+	text-align: center;
+	border-radius: 60px;
+	cursor: pointer;
+}
+.form-container input:hover[type="submit"]{
+	background-color: #0E2F28;
 }
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-
-input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
+#login .forgot-password {
+	display: inline-block;
 	text-align: center;
-	border-radius: 60px ;
+	color: #3D3D3D;
+	font-weight: 600;
+	text-decoration: none;
+	border-bottom: 1px solid #3D3D3D;
+	padding-bottom: 1px;
+}
+#login {
+	text-align: center;
 }
 
 footer nav ul {
@@ -186,3 +251,4 @@ footer nav ul {
 	margin: 2em
 }
 
+ 
