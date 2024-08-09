@@ -6,7 +6,7 @@ export function createButtons(data) {
 
     // Ajoute le bouton "Tous"
     const allButton = document.createElement('button');
-    allButton.textContent = 'Tous';
+    allButton.textContent = 'Tous'; 
     allButton.classList.add('active');
     allButton.addEventListener('click', () => displayData(data, 'all'));
     buttonContainer.appendChild(allButton);

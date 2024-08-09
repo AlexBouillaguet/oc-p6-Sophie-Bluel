@@ -8,19 +8,23 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
 <header>
-	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-	<nav>
-		<ul>
-			<li><a href="#portfolio">projets</a></li>
-			<li><a href="#contact">contact</a></li>
-			<li><a href="./login.html">login</a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
+	<div id="edition-mode"><i class="fa-regular fa-pen-to-square"></i> Mode édition</div>
+	<div id="navigation-container">
+		<h1>Sophie Bluel<span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+				<li><a href="#portfolio">projets</a></li>
+				<li><a href="#contact">contact</a></li>
+				<li><a href="./login.html" id="auth-button">login</a></li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</div>
 </header>
 <main>
 	<section id="introduction">
@@ -35,7 +39,10 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div id="portfolio-header">
+			<h2>Mes Projets</h2>
+			<div id="edit-projects"><i class="fa-regular fa-pen-to-square"></i> modifier</div>
+		</div>
 		<div class="filters-container"></div>
 		<div class="gallery"></div>
 	</section>
@@ -61,6 +68,43 @@
 		</ul>
 	</nav>
 </footer>
+<dialog id="modal" class="modal">
+	<i class="fa-solid fa-xmark" id="close-modal"></i>
+	<div id="gallery-view">
+		<h2>Galerie photo</h2>
+		<div id="gallery-modal" class="gallery-modal"></div>
+		<div class="line-modal"></div>
+		<button id="add-photo" class="btn-modal">Ajouter une photo</button>
+	</div>
+	<div id="add-photo-view">
+		<i class="fa-solid fa-arrow-left" id="back-arrow"></i>
+		<h2>Ajout photo</h2>
+		<div class="form-container">
+			<form action="#" method="post" enctype="multipart/form-data">
+				<div id="upload-container">
+					<label for="photo-upload" class="upload-label">
+						<i class="fa-regular fa-image"></i>
+						<span>+ Ajouter photo</span>
+						<p>jpg, png : 4mo max</p>
+					</label>
+					<input type="file" id="photo-upload" name="image" class="upload-input" accept="image/jpg, image/jpeg, image/png" style="display: none;">
+				</div>
+				<label for="title">Titre</label>
+				<input type="text" name="title" id="title" required>
+				<label for="category">Catégorie</label>
+				<select name="category" id="category" required>
+					<option value="" disabled selected hidden></option>
+					<option value="1">Objets</option>
+					<option value="2">Appartements</option>
+					<option value="3">Hôtels & restaurants</option>
+				</select>
+				<div class="line-modal"></div>
+				<input type="submit" value="Valider">
+			</form>
+		</div>
+	</div>
+</dialog>
 <script type="module" src="./assets/javascript/main.js"></script>
+<script type="module" src="./assets/javascript/modal.js"></script>
 </body>
 </html>
