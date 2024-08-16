@@ -2,6 +2,7 @@ import { fetchData } from './fetchData.js';
 import { displayData } from './displayData.js';
 import { createButtons } from './createButtons.js';
 import { checkLoginStatus } from './checkLoginStatus.js';
+import './modal.js';
 
 document.addEventListener('DOMContentLoaded', async () => { // Attendre que le DOM soit chargé
     checkLoginStatus(); // Vérifie si l'utilisateur est connecté

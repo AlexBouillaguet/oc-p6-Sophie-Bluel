@@ -14,22 +14,24 @@
 <body>
 <header>
 	<div id="edition-mode"><i class="fa-regular fa-pen-to-square"></i> Mode édition</div>
-	<div id="navigation-container">
-		<h1>Sophie Bluel<span>Architecte d'intérieur</span></h1>
-		<nav>
-			<ul>
-				<li><a href="#portfolio">projets</a></li>
-				<li><a href="#contact">contact</a></li>
-				<li><a href="./login.html" id="auth-button">login</a></li>
-				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-			</ul>
-		</nav>
+	<div class="nav-wrapper">
+		<div id="navigation-container">
+			<h1>Sophie Bluel<span>Architecte d'intérieur</span></h1>
+			<nav>
+				<ul>
+					<li><a href="#portfolio">projets</a></li>
+					<li><a href="#contact">contact</a></li>
+					<li><a href="./login.html" id="auth-button">login</a></li>
+					<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+				</ul>
+			</nav>
+		</div>
 	</div>
 </header>
 <main>
 	<section id="introduction">
 		<figure>
-			<img src="./assets/images/sophie-bluel.png" alt="">
+			<img src="./assets/images/sophie-bluel.png" alt="Photo de Sophie Bluel">
 		</figure>
 		<article>
 			<h2>Designer d'espace</h2>
@@ -86,6 +88,9 @@
 						<i class="fa-regular fa-image"></i>
 						<span>+ Ajouter photo</span>
 						<p>jpg, png : 4mo max</p>
+						<div id="preview-container" style="display: none;">
+							<img id="preview-image" src="" alt="Aperçu de l'image">
+						</div>
 					</label>
 					<input type="file" id="photo-upload" name="image" class="upload-input" accept="image/jpg, image/jpeg, image/png" style="display: none;">
 				</div>
@@ -105,6 +110,5 @@
 	</div>
 </dialog>
 <script type="module" src="./assets/javascript/main.js"></script>
-<script type="module" src="./assets/javascript/modal.js"></script>
 </body>
 </html>

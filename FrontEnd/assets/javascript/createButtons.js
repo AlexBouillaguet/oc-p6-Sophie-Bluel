@@ -1,8 +1,9 @@
+import { fetchCategories } from './fetchData.js';
 import { displayData } from './displayData.js';
 
-export function createButtons(data) {
+export async function createButtons(data) {
     const buttonContainer = document.querySelector('.filters-container');
-    const categories = Array.from(new Set(data.map(item => item.category.name))); // Extrait les noms des catégories
+    const categoriesSet = await fetchCategories(); // Extrait les noms des catégories uniques
 
     // Ajoute le bouton "Tous"
     const allButton = document.createElement('button');
@@ -12,10 +13,10 @@ export function createButtons(data) {
     buttonContainer.appendChild(allButton);
 
     // Ajoute les boutons pour chaque catégorie
-    categories.forEach(category => {
+    categoriesSet.forEach(categoryName => {
         const button = document.createElement('button');
-        button.textContent = category;
-        button.addEventListener('click', () => displayData(data, category));
+        button.textContent = categoryName;
+        button.addEventListener('click', () => displayData(data, categoryName));
         buttonContainer.appendChild(button);
     });
 
