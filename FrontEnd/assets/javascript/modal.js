@@ -1,6 +1,7 @@
 import { fetchData } from './fetchData.js';
 import { deleteWork } from './deleteWork.js';
 import { addWork } from './addWork.js';
+import { resetModal } from './resetModal.js';
 
 const modal = document.getElementById('modal');
 const openModal = document.getElementById('edit-projects');
@@ -15,6 +16,7 @@ openModal.addEventListener('click', () => {
 // Ajout de l'événement pour fermer la modal
 closeModal.addEventListener('click', () => {
     modal.close();
+    resetModal();
 });
 
 // Ajout de l'événement pour fermer la modal en cliquant à l'extérieur
@@ -28,6 +30,7 @@ modal.addEventListener('click', (e) => {
             e.clientY > rect.bottom
         ) {
             modal.close();
+            resetModal();
         }
     }
 });
@@ -44,12 +47,11 @@ addPhotoButton.addEventListener('click', () => {
 
 // Ajout de l'événement pour revenir à la première vue
 const backArrow = document.getElementById('back-arrow');
-
 backArrow.addEventListener('click', () => {
-    addPhotoView.style.display = 'none';
-    galleryView.style.display = 'flex';
+    resetModal();
 });
 
+// Ajout de l'événement pour la soumission
 const addWorkForm = document.querySelector('#add-photo-view form');
 addWorkForm.addEventListener('submit', addWork);
 
@@ -83,6 +85,7 @@ async function displayModalGallery() {
     });
 };
 
+// Ajout de l'événement pour afficher l'image de prévisualisation
 const photoUpload = document.getElementById('photo-upload');
 const previewContainer = document.getElementById('preview-container');
 const previewImage = document.getElementById('preview-image');
@@ -97,4 +100,11 @@ photoUpload.addEventListener('change', function(event) {
         }
         reader.readAsDataURL(file);
     }
+});
+
+// Ajout de l'événement pour afficher la zone de téléchargement
+const uploadLabel = document.querySelector('.upload-label');
+
+uploadLabel.addEventListener('click', function() {
+    photoUpload.click();
 });

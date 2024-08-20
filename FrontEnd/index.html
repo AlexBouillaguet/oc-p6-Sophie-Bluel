@@ -84,14 +84,14 @@
 		<div class="form-container">
 			<form action="#" method="post" enctype="multipart/form-data">
 				<div id="upload-container">
-					<label for="photo-upload" class="upload-label">
+					<div class="upload-label">
 						<i class="fa-regular fa-image"></i>
-						<span>+ Ajouter photo</span>
-						<p>jpg, png : 4mo max</p>
+						<span class="btn-preview">+ Ajouter photo</span>
+						<span class="file-info">jpg, png : 4mo max</span>
 						<div id="preview-container" style="display: none;">
 							<img id="preview-image" src="" alt="Aperçu de l'image">
 						</div>
-					</label>
+					</div>
 					<input type="file" id="photo-upload" name="image" class="upload-input" accept="image/jpg, image/jpeg, image/png" style="display: none;">
 				</div>
 				<label for="title">Titre</label>

@@ -2,16 +2,16 @@ const loginBtn = document.getElementById('auth-button');
 loginBtn.style.fontWeight = 'bold';
 
 document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Empeche le rechargement de la page
+     event.preventDefault(); // Empeche le rechargement de la page
      // Récupération des valeurs des champs
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+     const email = document.getElementById('email').value;
+     const password = document.getElementById('password').value;
 
-    login(email, password);
+     login(email, password);
 });
 
 async function login(email, password) {
-    try {
+     try {
           const response = await fetch('http://localhost:5678/api/users/login', {
                method: 'POST',
                headers: {
@@ -34,6 +34,17 @@ async function login(email, password) {
           }
      } catch (error) { // Gestion des erreurs
           console.error('Erreur de connexion :', error);
-          alert('Erreur dans l’identifiant ou le mot de passe');
+          displayErrorMessage('Identifiant ou mot de passe invalide');
      }
+}
+
+function displayErrorMessage(message) {
+     let errorElement = document.getElementById('error-message');
+     if (!errorElement) {
+        errorElement = document.createElement('p');
+        errorElement.id = 'error-message';
+        const form = document.getElementById('login-form');
+        form.insertBefore(errorElement, form.firstChild);
+     }
+     errorElement.textContent = message;
 }

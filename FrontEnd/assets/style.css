@@ -103,6 +103,7 @@ h2 {
 	font-size: 30px;
 	color: #1D6154
 }
+/* Header */
 #edition-mode {
 	background-color: black;
 	color: white;
@@ -138,9 +139,6 @@ nav ul {
 nav li {
 	font-size: 1.2em;
 }
-#logout-button {
-	display: none;
-}
 li:hover {
 	color: #B1663C;
 	cursor: pointer;
@@ -151,10 +149,11 @@ nav ul li img {
 nav ul li img:hover {
 	filter: brightness(0) saturate(100%) invert(45%) sepia(18%) saturate(2876%) hue-rotate(346deg) brightness(80%) contrast(73%);
 }
+/* Main */
 #introduction {
 	display: flex;
 	align-items: center;
-	max-width: 950px;
+	width: 950px;
 	margin: 0 auto;
 }
 #introduction figure {
@@ -177,7 +176,7 @@ nav ul li img:hover {
 	margin-bottom: 0.5em;
 }
 #portfolio {
-	max-width: 950px;
+	width: 950px;
 	margin: 139px auto;
 	margin-bottom: 57px;
 }
@@ -252,14 +251,13 @@ nav ul li img:hover {
 	margin-bottom: 7px;
 	object-fit: cover;
 }
-
+/* formulaires */
 .form-container {
 	width: 379px;
 	margin: auto;
 }
 .form-container > * {
 	text-align: center;
-
 }
 .form-container h2 {
 	margin-bottom: 9px;
@@ -275,6 +273,10 @@ nav ul li img:hover {
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	padding: 0 10px;
+}
+.form-container input:focus {
+	outline: none;
 }
 .form-container label {
 	margin: 2em 0 1em 0;
@@ -320,11 +322,19 @@ nav ul li img:hover {
 #login {
 	text-align: center;
 }
-
+#login h2 {
+	position: relative;
+}
+#error-message {
+	color: red;
+	position: absolute;
+	margin-left: 60px;
+}
+/* Footer */
 footer nav li {
 	margin-right: 107px;
 }
-
+/* Modal */
 .modal {
 	width: 630px;
 	position: relative;
@@ -365,7 +375,8 @@ footer nav li {
 }
 .gallery-modal img {
 	width: 100%;
-	height: auto;
+	height: 100%;
+	object-fit: cover;
 }
 
 .work-modal {
@@ -403,6 +414,9 @@ footer nav li {
 .btn-modal:focus {
 	outline: none;
 }
+.btn-modal:hover {
+	background-color: #0E2F28;
+}
 #gallery-view {
 	display: flex;
 	flex-direction: column;
@@ -425,7 +439,7 @@ footer nav li {
 	width: 100%;
 	margin: 0;
 }
-#add-photo-view h2{
+#add-photo-view h2 {
 	margin-bottom: 36px;
 }
 #add-photo-view .form-container form {
@@ -451,6 +465,7 @@ footer nav li {
 	margin-top: 0;
 	margin-bottom: 2px;
 	position: relative;
+	cursor: pointer;
 }
 #preview-container {
 	position: absolute;
@@ -473,7 +488,7 @@ footer nav li {
 	font-size: 60px;
 	color: #B9C5CC;
 }
-#add-photo-view span {
+#add-photo-view .btn-preview {
 	background-color: #CBD6DC;
 	color: #306685;
 	font-weight: 600;
@@ -481,7 +496,7 @@ footer nav li {
 	border-radius: 50px;
 	margin-top: 12.88px;
 }
-#add-photo-view p{
+#add-photo-view .file-info{
 	font-size: 10px;
 	color: #444444;
 	font-weight: 500;

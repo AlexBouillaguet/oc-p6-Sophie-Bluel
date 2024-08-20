@@ -1,5 +1,5 @@
 import { updateMainGallery } from "./updateMainGallery.js";
-
+import { resetModal } from "./resetModal.js";
 export async function addWork(event) {
      event.preventDefault();
  
@@ -8,7 +8,7 @@ export async function addWork(event) {
      const title = document.getElementById('title').value;
      const category = document.getElementById('category').value;
      const image = document.getElementById('photo-upload').files[0];
-
+     // Vérifier que tous les champs sont remplis
      if (!title || !category || !image) {
           alert('Tous les champs sont obligatoires');
           return;
@@ -20,7 +20,6 @@ export async function addWork(event) {
      formData.append('image', image);
  
      try {
-          const token = localStorage.getItem('token');
           const response = await fetch('http://localhost:5678/api/works', {
                method: 'POST',
                headers: {
@@ -38,22 +37,12 @@ export async function addWork(event) {
  
           // Ferme la modal
           document.getElementById('modal').close();
-
-          // Réinitialise la modal à sa première vue
-          document.getElementById('gallery-view').style.display = 'flex';
-          document.getElementById('add-photo-view').style.display = 'none';
-
-          // Vide tous les champs du formulaire
-          document.getElementById('title').value = '';
-          document.getElementById('category').value = '';
-          document.getElementById('photo-upload').value = '';
-          document.getElementById('preview-container').style.display = 'none';
-          document.getElementById('preview-image').src = '';
+          resetModal();
  
           // Rafraîchir la galerie
           await updateMainGallery();
  
      } catch (error) {
-          console.error('Erreur:', error);
+          console.error('Erreur lors de l\'ajout du travail:', error);
      }
 }
